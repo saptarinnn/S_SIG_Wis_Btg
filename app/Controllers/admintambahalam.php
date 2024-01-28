@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Controllers;
 
-use App\models\AlamModel; 
+use App\Models\AlamModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
-class admintambahalam extends BaseController 
+class admintambahalam extends BaseController
 {
     protected $admintambahalam;
     function __construct()
@@ -12,11 +13,11 @@ class admintambahalam extends BaseController
         $this->admintambahalam = new AlamModel();
     }
 
-    public function index() 
+    public function index()
     {
         $admintambahalam = new AlamModel();
 
-    $data['tambahalamx'] = $admintambahalam->where('status', 'published')->findAll();
+        $data['tambahalamx'] = $admintambahalam->where('status', 'published')->findAll();
         $data['tambahalamx'] = $admintambahalam->findAll();
         //mengirim data ke view
         echo view('admintambahalam', $data);
@@ -63,7 +64,7 @@ class admintambahalam extends BaseController
         //             'required' => '{field} Harus diisi',
         //             'min_length' => '{field} Minimal 4 karakter',
         //             'max_length' => '{field} Maksimal 100 karakter',
-                   
+
         //         ]
         //     ],
         //     'lokasi' => [
@@ -75,16 +76,16 @@ class admintambahalam extends BaseController
         //         ]
         //     ],
         //     'berat' => [
-                
-           
+
+
         //     ],
-          
+
         //     'keterangan' => [
-                
-           
+
+
         //     ],
-          
-          
+
+
         // ])) {
         //     session()->setFlashdata('error', $this->validator->listErrors());
         //     return redirect()->back()->withInput();
@@ -99,9 +100,8 @@ class admintambahalam extends BaseController
             'info' => $this->request->getVar('info'),
             'foto' => $this->request->getVar('foto'),
             'status' => $this->request->getVar('status')
-        
+
         ]);
         return redirect()->to('/dataalam');
     }
 }
-

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\models\PrestasiModel;
+use App\Models\PrestasiModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\Files\UploadedFile;
 
@@ -29,9 +29,9 @@ class Prestasi extends BaseController
         $data['prestasix'] = $prestasi->findAll();
         $prestasix = $prestasi->findAll();
         //mengirim data ke view
-    
-            // echo view('wisata-user', $data);
-            return view('prestasi-new', ['data' => $data, 'prestasix' => $prestasix]);
+
+        // echo view('wisata-user', $data);
+        return view('prestasi-new', ['data' => $data, 'prestasix' => $prestasix]);
     }
     public function form($id = null)
     {
